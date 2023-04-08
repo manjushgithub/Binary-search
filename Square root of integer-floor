@@ -1,0 +1,40 @@
+# Binary-search
+Q 3:Given an integer A.
+
+Compute and return the square root of A.
+
+If A is not a perfect square, return floor(sqrt(A)).
+
+DO NOT USE SQRT FUNCTION FROM THE STANDARD LIBRARY.
+
+NOTE: Do not use the sqrt function from the standard library. Users are expected to solve this in O(log(A)) time.
+
+public class Solution {
+    public int sqrt(int A) {
+
+
+        int l=1;
+        int r=A;
+int ans=0;
+        while(l<=r)
+        {
+            int mid=l+(r-l)/2;
+            int total=mid*mid;
+
+            if(total==A)
+            {
+                return mid;
+            }
+            else if(total<A)
+            {
+                ans=mid;
+                l=mid+1;
+            }
+            else{
+                r=mid-1;
+            }
+        }
+        return ans;
+
+    }
+}
